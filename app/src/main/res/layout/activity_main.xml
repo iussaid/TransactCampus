@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#F2F2F2"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/viewContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/container_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/actionFilter"
+                android:layout_width="0dp"
+                android:drawableEnd="@drawable/ic_filter"
+                android:drawableTint="@color/white"
+                android:paddingEnd="@dimen/dimen_10dp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:layout_marginEnd="@dimen/dimen_5dp"
+                android:paddingStart="@dimen/dimen_10dp"
+                android:layout_weight="0.7"
+                android:text="@string/hint_author_search"/>
+
+            <Button
+                android:id="@+id/actionClearFilter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:layout_marginEnd="@dimen/dimen_5dp"
+                android:layout_weight="0.3"
+                android:drawableEnd="@drawable/ic_clear"
+                android:drawableTint="@color/white"
+                android:text="@string/clear" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="20"
+            tools:listitem="@layout/item_photo" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/viewLoader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/viewLoading"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loader" />
+
+            <TextView
+                android:id="@+id/tvMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/msg_loading"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/actionRetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:layout_marginEnd="@dimen/dimen_5dp"
+                android:layout_weight="0.3"
+                android:drawableEnd="@drawable/reload"
+                android:drawableTint="@color/white"
+                android:text="@string/retry" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Transact Campus</string>
+    <string name="clear">Clear</string>
+    <string name="search">Search</string>
+    <string name="author">%s</string>
+    <string name="photo_desc">Transact Campus</string>
+    <string name="hint_author_search">Filter by author</string>
+    <string name="msg_loading">Loading Images...</string>
+    <string name="msg_network">No Network Found...</string>
+    <string name="retry">Retry</string>
+    <string name="sort_az">Sort A-Z</string>
+    <string name="sort_za">Sort Z-A</string>
+    <string name="two_columns">Grid</string>
+    <string name="one_column">List</string>
+    <string name="msg_processing">Processing...</string>
+    <string name="msg_wallpaper">Wallpaper has been updated</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget condimentum nibh. Sed non egestas nisl. Donec pellentesque magna quis quam vestibulum blandit. Maecenas ut congue neque, quis suscipit nibh. Pellentesque posuere enim sed urna dapibus, ut tempor erat viverra. Phasellus tincidunt turpis erat, id molestie diam laoreet a. Ut eu mi nec ligula sollicitudin dictum id at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+</resources>

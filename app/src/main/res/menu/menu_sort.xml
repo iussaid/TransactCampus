@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_sort_az"
+        android:icon="@drawable/sort_az"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="@string/sort_az" />
+
+    <item
+        android:id="@+id/menu_sort_za"
+        android:icon="@drawable/sort_za"
+        android:orderInCategory="200"
+        app:showAsAction="always"
+        android:title="@string/sort_za" />
+    <item
+        android:id="@+id/menu_list"
+        android:icon="@drawable/one_column"
+        android:orderInCategory="200"
+        app:showAsAction="always"
+        android:title="@string/one_column" />
+    <item
+        android:id="@+id/menu_grid"
+        android:icon="@drawable/two_columns"
+        android:orderInCategory="200"
+        app:showAsAction="always"
+        android:title="@string/two_columns" />
+
+</menu>
