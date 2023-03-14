@@ -9,6 +9,7 @@ import static ussaid.iqbal.transactcampus.utils.Constants.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -70,8 +71,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         tinyDB = new TinyDB(context);
         SetUpViews();
+        if(savedInstanceState != null){
+            // scroll to existing position which exist before rotation.
+            rvMain.scrollToPosition(savedInstanceState.getInt("position"));
+            Log.e("USSAID", "onSaveInstanceState Called OnCreate");
+        }
 
     }
 
@@ -91,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         searchableSpinner = new SearchableSpinner(this);
         adapter = new ImagesAdapter(photosList);
+
         StaggeredGridLayoutManager sm = new StaggeredGridLayoutManager(tinyDB.getInt(COLUMNS_COUNT, 2), StaggeredGridLayoutManager.VERTICAL);
 
         rvMain.setLayoutManager(sm);
@@ -189,7 +197,6 @@ public class MainActivity extends AppCompatActivity {
                             photosList.remove(photosList.size() - 1);
                             Log.e(Constants.TAG, response.toString());
                             if(response.length() > 0){
-
                                 //we have data
                                 try {
                                     for (int x = 0 ; x < response.length() ; x++){
@@ -263,7 +270,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                 StaggeredGridLayoutManager linearLayoutManager = (StaggeredGridLayoutManager) recyclerView.getLayoutManager();
+
+                StaggeredGridLayoutManager linearLayoutManager = (StaggeredGridLayoutManager) recyclerView.getLayoutManager();
                  if(Constants.CURRENT_PAGE_INDEX < Constants.MAX_PAGES && !isLoading){
                      int[] lastVisibleItemPositions = linearLayoutManager.findLastVisibleItemPositions(null);
                     if (getLastVisibleItem(lastVisibleItemPositions) == (isFiltering ? photosListFiltered.size() - 1 : photosList.size() - 1)) {
@@ -331,5 +339,14 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        StaggeredGridLayoutManager linearLayoutManager = (StaggeredGridLayoutManager) rvMain.getLayoutManager();
+        savedInstanceState.putInt("position", getLastVisibleItem(linearLayoutManager.findLastVisibleItemPositions(null))); // get current recycle view position here.
+        //your other code
+        Log.e("USSAID", "onSaveInstanceState Called");
+        super.onSaveInstanceState(savedInstanceState);
     }
 }

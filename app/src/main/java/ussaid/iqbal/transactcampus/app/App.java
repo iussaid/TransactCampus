@@ -146,6 +146,7 @@ public class App extends Application{
         }
         return new JSONArray(ret);
     }
+
     private static  ProgressDialog pd;
     public static void ShowHUD(Context context){
         pd = new ProgressDialog(context);
